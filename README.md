@@ -11,4 +11,15 @@
 # Run project
 # 1. Donwload  and copy project to  work path
 # 2. Execute in console --> mvn clean compile package
-# 3. Execute in consele --> jar java target\workshop-tracker-server.jar
+
+# Hello world in spring boot
+# 1. Update the file  pom.xml
+#    <dependencies>
+#		<dependency>
+#			<groupId>org.springframework.boot</groupId>
+#			<artifactId>spring-boot-starter-web</artifactId>
+#		</dependency>
+# </dependencies>
+# 2. Change class home and add requets model
+# 3. Execute in consele --> java -jar target\workshop-tracker-server.jar
+# 4.  Got to url --> http://localhost:8080/
