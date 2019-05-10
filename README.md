@@ -120,4 +120,25 @@ public class CustomerService {
 ```shell
  mvn clean compile package
 ```
+### Implement controller of *customer*
+1. Create and implements the class *CustomerController* for example:
+```java
+package com.hub.workshoptrackerserver.controller;
+
+import com.hub.workshoptrackerserver.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("customers")
+public class CustomerController {
+    @Autowired
+    CustomerService customerService;
+}
+```
+2. For and, you can compiler with comants:
+```shell
+ mvn clean compile package
+```
 
