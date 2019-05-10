@@ -16,6 +16,7 @@ public class CustomerService {
         customer.setId(newCustomer.getId());
         customer.setName(newCustomer.getName());
         customer.setLastName(newCustomer.getLastName());
+        customer.setEmail(newCustomer.getEmail());
         customer.setCellPhoneNumber(newCustomer.getCellPhoneNumber());
         customer.setPhoneNumber(newCustomer.getPhoneNumber());
         customerRepository.save(customer);
