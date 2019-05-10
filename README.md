@@ -85,6 +85,20 @@ public class Customer {
 ```shell
  mvn clean compile package
 ```
+### Implement dao repository of *customer*
+1. Create and implement the  *interface*
+```java
+package com.hub.workshoptrackerserver.dao;
 
+import com.hub.workshoptrackerserver.model.Customer;
+import org.springframework.data.repository.CrudRepository;
+
+public interface CustomerRepository extends CrudRepository<Customer, Long> {
+}
+```
+2. For and, you can compiler with comants:
+```shell
+ mvn clean compile package
+```
 
 
