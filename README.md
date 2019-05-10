@@ -41,9 +41,24 @@
 ### Structure Code
 Create your code Structure:
 ```txt
-+- myproject
++- workshop-tracker-server
   +- model
   +- dao
   +- controller
   +- service
 ```
+### Conexion mysql
+1. Create the data base in mysql *db_workshop_tracker*
+2. Add dependence to file pom.xml
+```xml
+    <!-- data base dependences -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency> 
+```
+
