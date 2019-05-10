@@ -86,7 +86,7 @@ public class Customer {
  mvn clean compile package
 ```
 ### Implement dao repository of *customer*
-1. Create and implement the  *interface*
+1. Create and implement the interface *CustomerRepository* for example:
 ```java
 package com.hub.workshoptrackerserver.dao;
 
@@ -101,4 +101,23 @@ public interface CustomerRepository extends CrudRepository<Customer, Long> {
  mvn clean compile package
 ```
 
+### Implement service of *customer*
+1. Create and implent the class *CustomerService* for example:
+```java
+package com.hub.workshoptrackerserver.service;
+
+import com.hub.workshoptrackerserver.dao.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CustomerService {
+    @Autowired
+    CustomerRepository customerRepository;
+}
+```
+2. For and, you can compiler with comants:
+```shell
+ mvn clean compile package
+```
 
