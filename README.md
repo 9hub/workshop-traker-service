@@ -49,7 +49,7 @@ Create your code Structure:
 ```
 ### Conexion mysql
 1. Create the data base in mysql *db_workshop_tracker*
-2. Add dependence to file pom.xml
+2. Add dependence mysql and jpa to file pom.xml
 ```xml
     <!-- data base dependences -->
     <dependency>
@@ -61,4 +61,30 @@ Create your code Structure:
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency> 
 ```
+### Implement model entity of *customer*
+1. Implement the class *Customer*, You can import more the package *javax.pesistence*
+```java
+import javax.persistence.Entity;
+@Entity
+public class Customer {
+
+}
+```
+2. You define the atributos of class customer,  the key atributo  is *id*
+```java
+@Entity
+@Table(name = "customers")
+public class Customer {
+    @javax.persistence.Id
+    private Long Id;
+    ...
+
+}
+```
+3. For and, you can compiler with comants and it make the table *customers*:
+```shell
+ mvn clean compile package
+```
+
+
 
