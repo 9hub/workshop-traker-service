@@ -141,4 +141,24 @@ public class CustomerController {
 ```shell
  mvn clean compile package
 ```
+### Setting Up Swagger 2 with a Spring REST API
+1. To add it to our Maven project, we need a dependency in the pom.xml file.
+```xml
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger2</artifactId>
+    <version>2.9.2</version>
+</dependency>
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger-ui</artifactId>
+    <version>2.9.2</version>
+</dependency>
+```
+2. To create package *config* and create class *SwaggerConfig.java*
+3. GTest your apis with swagger
+[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+4. For more help:
+[swagger and spring boot](https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api)
+
 
