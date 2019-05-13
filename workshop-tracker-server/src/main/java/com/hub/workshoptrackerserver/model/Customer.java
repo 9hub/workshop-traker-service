@@ -2,12 +2,17 @@ package com.hub.workshoptrackerserver.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "customers")
-public class Customer {
+public class Customer  implements Serializable{
+
     @javax.persistence.Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
     @Column(length = 50)
@@ -20,10 +25,10 @@ public class Customer {
     private String email;
 
     @Column(length = 10)
-    private Integer cellPhoneNumber;
+    private Integer mobile;
 
     @Column(length = 10)
-    private Integer phoneNumber;
+    private Integer phone;
 
     public Long getId() {
         return Id;
@@ -57,19 +62,19 @@ public class Customer {
         this.email = email;
     }
 
-    public Integer getCellPhoneNumber() {
-        return cellPhoneNumber;
+    public Integer getMobile() {
+        return mobile;
     }
 
-    public void setCellPhoneNumber(Integer cellPhoneNumber) {
-        this.cellPhoneNumber = cellPhoneNumber;
+    public void setMobile(Integer mobile) {
+        this.mobile = mobile;
     }
 
-    public Integer getPhoneNumber() {
-        return phoneNumber;
+    public Integer getPhone() {
+        return phone;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone(Integer phone) {
+        this.phone = phone;
     }
 }

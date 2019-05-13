@@ -2,6 +2,7 @@ package com.hub.workshoptrackerserver.controller;
 
 import com.hub.workshoptrackerserver.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,8 @@ public class CustomerController {
     CustomerService customerService;
 
     @RequestMapping(method = RequestMethod.POST, value = "/add")
-    public void registerCustomer(@RequestBody CustomerController.RequetsCustomer newCustomer) {
-        customerService.registerCustomerService(newCustomer);
+    public ResponseEntity<?> registerCustomer(@RequestBody CustomerController.RequetsCustomer newCustomer) {
+        return customerService.registerCustomerService(newCustomer);
 
     }
 
@@ -25,8 +26,8 @@ public class CustomerController {
         private String name;
         private String lastName;
         private String email;
-        private Integer cellPhoneNumber;
-        private Integer phoneNumber;
+        private Integer mobile;
+        private Integer phone;
 
         public Long getId() {
             return Id;
@@ -60,20 +61,20 @@ public class CustomerController {
             this.email = email;
         }
 
-        public Integer getCellPhoneNumber() {
-            return cellPhoneNumber;
+        public Integer getMobile() {
+            return mobile;
         }
 
-        public void setCellPhoneNumber(Integer cellPhoneNumber) {
-            this.cellPhoneNumber = cellPhoneNumber;
+        public void setMobile(Integer mobile) {
+            this.mobile = mobile;
         }
 
-        public Integer getPhoneNumber() {
-            return phoneNumber;
+        public Integer getPhone() {
+            return phone;
         }
 
-        public void setPhoneNumber(Integer phoneNumber) {
-            this.phoneNumber = phoneNumber;
+        public void setPhone(Integer phone) {
+            this.phone = phone;
         }
     }
 }
