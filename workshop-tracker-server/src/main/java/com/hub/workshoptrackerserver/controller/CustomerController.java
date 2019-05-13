@@ -1,24 +1,35 @@
 package com.hub.workshoptrackerserver.controller;
 
+import com.hub.workshoptrackerserver.model.Customer;
 import com.hub.workshoptrackerserver.service.CustomerService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import java.util.List;
+
+@RestController
 @RequestMapping("customers")
+@Api(value = "customers", description = "Customer description")
 public class CustomerController {
     @Autowired
-    CustomerService customerService;
+    private CustomerService customerService;
+
+    @RequestMapping(method = RequestMethod.GET)
+    public List<Customer> listCustumers() {
+        System.out.println("List Customers");
+        return customerService.getListCustumersService();
+    }
 
     @RequestMapping(method = RequestMethod.POST, value = "/add")
     public ResponseEntity<?> registerCustomer(@RequestBody CustomerController.RequetsCustomer newCustomer) {
         return customerService.registerCustomerService(newCustomer);
-
     }
+
 
     public static class RequetsCustomer {
 

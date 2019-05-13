@@ -1,15 +1,11 @@
 package com.hub.workshoptrackerserver.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "customers")
-public class Customer  implements Serializable{
+public class Customer implements Serializable {
 
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -77,4 +73,5 @@ public class Customer  implements Serializable{
     public void setPhone(Integer phone) {
         this.phone = phone;
     }
+    private static final long serialVersionUID = 1L;
 }
