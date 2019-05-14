@@ -35,14 +35,16 @@ public class CustomerService {
         return customerRepository.findAll();
     }
     public ResponseEntity<?> updateCustomerService(Long id, Customer updCustomer){
-        if(customerRepository.existsById(id)){
-            Customer customerDb = new Customer();
+        if(customerRepository.existsById(id)){            
+            Optional<Customer> customerOptional = customerRepository.findById(id);
+            Customer customerDb = customerOptional.get();
             customerDb.setId(updCustomer.getId());
             customerDb.setName(updCustomer.getName());
             customerDb.setLastName(updCustomer.getLastName());
             customerDb.setEmail(updCustomer.getEmail());
             customerDb.setMobile(updCustomer.getMobile());
             customerDb.setPhone(updCustomer.getPhone());
+            customerRepository.save(customerDb);
             return new ResponseEntity<>(new ResponseMessage("Customer update successfully!"), HttpStatus.OK);
         }else{
             return new ResponseEntity<>(new ResponseMessage("Fail Customer update!"), HttpStatus.BAD_REQUEST);
