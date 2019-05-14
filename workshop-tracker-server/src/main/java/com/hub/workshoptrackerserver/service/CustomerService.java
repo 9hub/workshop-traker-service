@@ -1,5 +1,6 @@
 package com.hub.workshoptrackerserver.service;
 
+import java.util.Optional;
 import com.hub.workshoptrackerserver.controller.CustomerController;
 import com.hub.workshoptrackerserver.dao.CustomerRepository;
 import com.hub.workshoptrackerserver.model.Customer;
@@ -33,4 +34,28 @@ public class CustomerService {
     public List<Customer> getListCustumersService() {
         return customerRepository.findAll();
     }
+    public ResponseEntity<?> updateCustomerService(Long id, Customer updCustomer){
+        if(customerRepository.existsById(id)){
+            Customer customerDb = new Customer();
+            customerDb.setId(updCustomer.getId());
+            customerDb.setName(updCustomer.getName());
+            customerDb.setLastName(updCustomer.getLastName());
+            customerDb.setEmail(updCustomer.getEmail());
+            customerDb.setMobile(updCustomer.getMobile());
+            customerDb.setPhone(updCustomer.getPhone());
+            return new ResponseEntity<>(new ResponseMessage("Customer update successfully!"), HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(new ResponseMessage("Fail Customer update!"), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+	public Customer getCustomerService(Long id) {
+        Customer customer = new Customer();
+        if(customerRepository.existsById(id)){
+            Optional<Customer> customerOptional = customerRepository.findById(id);
+            customer = customerOptional.get();
+        }
+        return customer;
+
+	}
 }

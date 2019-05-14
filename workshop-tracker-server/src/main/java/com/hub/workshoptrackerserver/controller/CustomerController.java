@@ -5,6 +5,7 @@ import com.hub.workshoptrackerserver.service.CustomerService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,6 +29,16 @@ public class CustomerController {
     @RequestMapping(method = RequestMethod.POST, value = "/add")
     public ResponseEntity<?> registerCustomer(@RequestBody CustomerController.RequetsCustomer newCustomer) {
         return customerService.registerCustomerService(newCustomer);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/update/{id}")
+    public ResponseEntity<?> updateCustomer(@PathVariable("id") Long id, @RequestBody Customer updCustomer){
+        return customerService.updateCustomerService(id, updCustomer);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/customer/{id}")
+    public Customer getCustomer(@PathVariable("id") Long id){
+        return customerService.getCustomerService(id);
     }
 
 
