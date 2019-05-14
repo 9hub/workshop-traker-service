@@ -4,6 +4,8 @@ import com.hub.workshoptrackerserver.model.Work;
 import com.hub.workshoptrackerserver.service.WorkService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,4 +24,76 @@ public class WorkController {
     public List<Work> listWorks() {
         return workService.getListWorksService();
     }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/add")
+    public ResponseEntity<?> registerWork(@RequestBody WorkController.RequestWork newWork) {
+        return workService.registerWorkService(newWork);
+    }
+
+    public static class RequestWork {
+        private Long Id;
+        private Boolean stateWork;
+        private String dateInit;
+        private String dateEnd;
+        private String descriptionWork;
+        private String model;
+        private Long idCustomer;
+
+        public Long getId() {
+            return Id;
+        }
+
+        public void setId(Long id) {
+            Id = id;
+        }
+
+        public Boolean getStateWork() {
+            return stateWork;
+        }
+
+        public void setStateWork(Boolean stateWork) {
+            this.stateWork = stateWork;
+        }
+
+        public String getDateInit() {
+            return dateInit;
+        }
+
+        public void setDateInit(String dateInit) {
+            this.dateInit = dateInit;
+        }
+
+        public String getDateEnd() {
+            return dateEnd;
+        }
+
+        public void setDateEnd(String dateEnd) {
+            this.dateEnd = dateEnd;
+        }
+
+        public String getDescriptionWork() {
+            return descriptionWork;
+        }
+
+        public void setDescriptionWork(String descriptionWork) {
+            this.descriptionWork = descriptionWork;
+        }
+
+        public String getModel() {
+            return model;
+        }
+
+        public void setModel(String model) {
+            this.model = model;
+        }
+
+        public Long getIdCustomer() {
+            return idCustomer;
+        }
+
+        public void setIdCustomer(Long idCustomer) {
+            this.idCustomer = idCustomer;
+        }
+    }
+
 }

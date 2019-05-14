@@ -14,7 +14,7 @@ public class Work implements Serializable {
     private Boolean stateWork;
 
     @Column(length = 20)
-    private String dateinit;
+    private String dateInit;
 
     @Column(length = 20)
     private String dateEnd;
@@ -44,12 +44,12 @@ public class Work implements Serializable {
         this.stateWork = stateWork;
     }
 
-    public String getDateinit() {
-        return dateinit;
+    public String getDateInit() {
+        return dateInit;
     }
 
-    public void setDateinit(String dateinit) {
-        this.dateinit = dateinit;
+    public void setDateInit(String dateinit) {
+        this.dateInit = dateinit;
     }
 
     public String getDateEnd() {
