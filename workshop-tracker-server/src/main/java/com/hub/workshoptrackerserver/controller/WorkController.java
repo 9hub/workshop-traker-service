@@ -1,14 +1,12 @@
 package com.hub.workshoptrackerserver.controller;
 
 import com.hub.workshoptrackerserver.model.Work;
+import com.hub.workshoptrackerserver.model.Work;
 import com.hub.workshoptrackerserver.service.WorkService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +26,11 @@ public class WorkController {
     @RequestMapping(method = RequestMethod.POST, value = "/add")
     public ResponseEntity<?> registerWork(@RequestBody WorkController.RequestWork newWork) {
         return workService.registerWorkService(newWork);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/update/{id}")
+    public ResponseEntity<?> updateWork(@PathVariable("id") Long id, @RequestBody Work updWork){
+        return workService.updateWorkService(id, updWork);
     }
 
     public static class RequestWork {
