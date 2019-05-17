@@ -1,17 +1,18 @@
 package com.hub.workshoptrackerserver.model;
 
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "works")
-public class Work implements Serializable {
-
+@Table(name = "services")
+public class Services implements Serializable {
+    
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    private Boolean stateWork;
+    private Boolean stateService;
 
     @Column(length = 20)
     private String dateInit;
@@ -20,7 +21,7 @@ public class Work implements Serializable {
     private String dateEnd;
 
     @Column(length = 2000)
-    private String descriptionWork;
+    private String descriptionService;
 
     @Column(length = 200)
     private String model;
@@ -36,20 +37,20 @@ public class Work implements Serializable {
         Id = id;
     }
 
-    public Boolean getStateWork() {
-        return stateWork;
+    public Boolean getStateService() {
+        return stateService;
     }
 
-    public void setStateWork(Boolean stateWork) {
-        this.stateWork = stateWork;
+    public void setStateService(Boolean stateService) {
+        this.stateService = stateService;
     }
 
     public String getDateInit() {
         return dateInit;
     }
 
-    public void setDateInit(String dateinit) {
-        this.dateInit = dateinit;
+    public void setDateInit(String dateInit) {
+        this.dateInit = dateInit;
     }
 
     public String getDateEnd() {
@@ -60,12 +61,12 @@ public class Work implements Serializable {
         this.dateEnd = dateEnd;
     }
 
-    public String getDescriptionWork() {
-        return descriptionWork;
+    public String getDescriptionService() {
+        return descriptionService;
     }
 
-    public void setDescriptionWork(String descriptionWork) {
-        this.descriptionWork = descriptionWork;
+    public void setDescriptionService(String descriptionService) {
+        this.descriptionService = descriptionService;
     }
 
     public String getModel() {
@@ -83,4 +84,6 @@ public class Work implements Serializable {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    private static final long serialVersionUID = 1L;
 }

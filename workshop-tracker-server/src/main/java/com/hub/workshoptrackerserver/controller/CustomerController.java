@@ -26,17 +26,17 @@ public class CustomerController {
         return customerService.getListCustumersService();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/add")
+    @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> registerCustomer(@RequestBody CustomerController.RequetsCustomer newCustomer) {
         return customerService.registerCustomerService(newCustomer);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/update/{id}")
+    @RequestMapping(method = RequestMethod.PUT, value = "/{id}")
     public ResponseEntity<?> updateCustomer(@PathVariable("id") Long id, @RequestBody Customer updCustomer){
         return customerService.updateCustomerService(id, updCustomer);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/customer/{id}")
+    @RequestMapping(method = RequestMethod.GET, value = "{id}")
     public Customer getCustomer(@PathVariable("id") Long id){
         return customerService.getCustomerService(id);
     }

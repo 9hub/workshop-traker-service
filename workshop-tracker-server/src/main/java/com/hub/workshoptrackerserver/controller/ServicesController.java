@@ -1,8 +1,8 @@
 package com.hub.workshoptrackerserver.controller;
 
-import com.hub.workshoptrackerserver.model.Work;
-import com.hub.workshoptrackerserver.model.Work;
-import com.hub.workshoptrackerserver.service.WorkService;
+
+import com.hub.workshoptrackerserver.model.Services;
+import com.hub.workshoptrackerserver.service.ServicesService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,34 +11,34 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("works")
-@Api(value = "work", description = "Works request")
-public class WorkController {
+@RequestMapping("services")
+@Api(value = "service", description = "services request")
+public class ServicesController {
 
     @Autowired
-    private WorkService workService;
+    private ServicesService servicesService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Work> listWorks() {
-        return workService.getListWorksService();
+    public List<Services> listservices() {
+        return servicesService.getListServicesService();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/add")
-    public ResponseEntity<?> registerWork(@RequestBody WorkController.RequestWork newWork) {
-        return workService.registerWorkService(newWork);
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<?> registerservice(@RequestBody ServicesController.RequestServices newServices) {
+        return servicesService.registerServicesService(newServices);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/update/{id}")
-    public ResponseEntity<?> updateWork(@PathVariable("id") Long id, @RequestBody Work updWork){
-        return workService.updateWorkService(id, updWork);
+    @RequestMapping(method = RequestMethod.PUT, value = "/{id}")
+    public ResponseEntity<?> updateservice(@PathVariable("id") Long id, @RequestBody Services updServices){
+        return servicesService.updateServiceService(id, updServices);
     }
 
-    public static class RequestWork {
+    public static class RequestServices {
         private Long Id;
-        private Boolean stateWork;
+        private Boolean stateService;
         private String dateInit;
         private String dateEnd;
-        private String descriptionWork;
+        private String descriptionService;
         private String model;
         private Long idCustomer;
 
@@ -50,12 +50,12 @@ public class WorkController {
             Id = id;
         }
 
-        public Boolean getStateWork() {
-            return stateWork;
+        public Boolean getStateService() {
+            return stateService;
         }
 
-        public void setStateWork(Boolean stateWork) {
-            this.stateWork = stateWork;
+        public void setStateService(Boolean stateService) {
+            this.stateService = stateService;
         }
 
         public String getDateInit() {
@@ -74,12 +74,12 @@ public class WorkController {
             this.dateEnd = dateEnd;
         }
 
-        public String getDescriptionWork() {
-            return descriptionWork;
+        public String getDescriptionService() {
+            return descriptionService;
         }
 
-        public void setDescriptionWork(String descriptionWork) {
-            this.descriptionWork = descriptionWork;
+        public void setDescriptionService(String descriptionService) {
+            this.descriptionService = descriptionService;
         }
 
         public String getModel() {
